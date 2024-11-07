@@ -69,4 +69,3 @@ class SinglyLinkedList:
             self.__head = newNode
         else:
             ptr_prev.next_node = newNode
-
