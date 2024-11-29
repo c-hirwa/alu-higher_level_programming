@@ -1,25 +1,27 @@
 #!/usr/bin/python3
-"""This module creates sentences from a paragraph"""
+''' Defining a text indentation function that prints indented text '''
 
 
 def text_indentation(text):
-    """ This function accepts a text and fraction it into pieces"""
-    if not isinstance(text, str):
+    '''
+    Prints a text with 2 new lines after . ? and :
+    Ensures text is a string
+    Raises an error if text is not a string
+    '''
+    if type(text) is not str:
         raise TypeError("text must be a string")
-
-    result = ""
-    newline_required = True
-
-    for char in text:
-        if char in '.?:':
-            result += char + "\n\n"
-            newline_required = True
+    for i in range(0, len(text)):
+        if text[i] in [".", "?", ":"]:
+            print(text[i], end="")
+            print("\n")
+        elif text[i] == " ":
+            for x in range(i, 0, -1):
+                if text[x] == " ":
+                    continue
+                elif text[x] in [".", "?", ":"]:
+                    break
+                else:
+                    print(text[i], end="")
+                    break
         else:
-            if newline_required:
-                if not char.isspace():
-                    result += char
-                    newline_required = False
-            else:
-                result += char
-
-    print(result)
+            print(text[i], end="")
