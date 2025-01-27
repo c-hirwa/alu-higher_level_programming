@@ -1,0 +1,1 @@
+# It's JavaScript in Objects, scopes and closures
